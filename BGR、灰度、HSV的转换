@@ -1,0 +1,24 @@
+import cv2
+import numpy as np
+a=cv2.imread(r"C:\\Users\\HUAWEI\\Pictures\\cute.png")
+#图像转换
+#BGR与RGB转换
+b3=cv2.cvtColor(a,cv2.COLOR_BGR2RGB)
+cv2.imshow("a",a)
+cv2.imshow("b3",b3)
+cv2.waitKey()
+#BGR与灰度
+b1=cv2.cvtColor(a,cv2.COLOR_BGR2GRAY)
+b2=cv2.cvtColor(b1,cv2.COLOR_GRAY2BGR)
+cv2.imshow("b1",b1)
+cv2.imshow("b2",b2)
+cv2.waitKey()
+print(a,"\n",b1,"\n",b2)
+#BGR与HSV
+b4=cv2.cvtColor(a,cv2.COLOR_BGR2HSV)
+b5=cv2.cvtColor(b4,cv2.COLOR_HSV2BGR)
+cv2.imshow("b4",b4)
+cv2.imshow("b5",b5)
+cv2.waitKey()
+cv2.destroyAllWindows()
+input("按回车键退出")
