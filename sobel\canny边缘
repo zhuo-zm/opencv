@@ -1,0 +1,24 @@
+import cv2
+import numpy as np
+a=cv2.imread(r"C:\\Users\\HUAWEI\\Pictures\\cute.png")
+#取绝对值
+a1=np.random.randint(-256,256,size=[4,5],dtype=np.int16)
+a2=cv2.convertScaleAbs(a1)
+print("a1=\n",a1)
+print("a2=\n",a2)
+#sobel边缘
+#水平
+b1=cv2.Sobel(a,cv2.CV_64F,1,0)
+#垂直
+b2=cv2.Sobel(a,cv2.CV_64F,0,1)
+#一起
+b3=cv2.Sobel(a,cv2.CV_64F,1,1)
+cv2.imshow("a",a)
+cv2.imshow("b1",b1)
+cv2.imshow("b2",b2)
+cv2.imshow("b3",b3)
+cv2.waitKey()
+#Canny边缘,后面两值越小边缘信息获取越多
+c=cv2.Canny(a,32,200)
+cv2.imshow("c",c)
+cv2.waitKey()
