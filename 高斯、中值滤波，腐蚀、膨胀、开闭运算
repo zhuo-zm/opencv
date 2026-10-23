@@ -1,0 +1,31 @@
+import cv2
+import numpy as np
+a=cv2.imread(r"C:\\Users\\HUAWEI\\Pictures\\cute.png")
+#高斯滤波
+b1=cv2.GaussianBlur(a,(5,5),0,0)
+cv2.imshow("a",a)
+cv2.imshow("b1",b1)
+cv2.waitKey()
+#中值滤波
+b2=cv2.medianBlur(a,3)
+cv2.imshow("b2",b2)
+cv2.waitKey()
+#腐蚀
+kernel=np.ones((5,5),np.uint8)
+c1=cv2.erode(a,kernel)
+cv2.imshow("c1",c1)
+cv2.waitKey()
+#膨胀
+c2=cv2.dilate(a,kernel)
+cv2.imshow("c2",c2)
+cv2.waitKey()
+#开运算
+c3=cv2.morphologyEx(a,cv2.MORPH_OPEN,kernel)
+cv2.imshow("c3",c3)
+cv2.waitKey()
+#闭运算
+c4=cv2.morphologyEx(a,cv2.MORPH_CLOSE,kernel)
+cv2.imshow("c4",c4)
+cv2.waitKey()
+cv2.destroyAllWindows()
+input("按回车键退出")
