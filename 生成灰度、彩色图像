@@ -1,0 +1,36 @@
+import cv2
+import numpy as np
+cv2.namedWindow("A")
+#灰度图像
+#生成一个8x8的二维数组，数值类型是np.uint8
+a=np.zeros((8,8),dtype=np.uint8)
+#a[0,3]表示图像第0行第3列的像素点,也可以用item()
+print("读取像素点a[0,3]=",a[0,3])
+#像素点可以直接改变,也可以用itemset()
+a[0,3]=255
+print("改后读取像素点a[0,3]=",a[0,3])
+#随机生成灰度图像,数值在10-99间，大小为5x5
+c=np.random.randint(0,255,size=[256,256],dtype=np.uint8)
+print("随机生成灰度图像",c)
+cv2.imshow("A",c)
+cv2.waitKey()
+#彩色图像
+#这次是三维数组，两行四列每个里面还有一个数组有三个通道从左到右依次表示BGR
+b=np.zeros((2,4,3),dtype=np.uint8)
+#表示精确到读取哪个通道，0表示B
+print("读取像素点b[0,3,0]=",b[0,3,0])
+#表示读所有的通道
+print("读取像素点b[0,3]=",b[0,3])
+#改变可以精确到哪个通道
+b[0,3,0]=255
+print("改后读取像素点b[0,3,0]=",b[0,3,0])
+#也可以同时
+b[0,3]=[66,77,88]
+print("改后读取像素点b[0,3]=",b[0,3])
+#随机生成彩色图像
+d=np.random.randint(0,255,size=[255,255,3],dtype=np.uint8)
+print("随机生成灰度图像",d)
+cv2.imshow("A",d)
+cv2.waitKey()
+input("按回车退出")
+
