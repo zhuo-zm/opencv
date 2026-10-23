@@ -1,0 +1,27 @@
+import cv2
+import numpy as np
+a=np.random.randint(0,256,size=[4,5],dtype=np.uint8)
+#二值化阈值处理
+b1,b2=cv2.threshold(a,127,255,cv2.THRESH_BINARY)
+print("a=\n",a)
+print("b1=\n",b1)
+print("b2=\n",b2)
+#反二值化阈值处理
+b3,b4=cv2.threshold(a,127,255,cv2.THRESH_BINARY_INV)
+print("b4=\n",b4)
+#截断阈值化处理
+b5,b6=cv2.threshold(a,127,255,cv2.THRESH_TRUNC)
+print("b6=\n",b6)
+#超阈值零处理
+b7,b8=cv2.threshold(a,127,255,cv2.THRESH_TOZERO_INV)
+print("b8=\n",b8)
+#低阈值零处理
+c1,c2=cv2.threshold(a,127,255,cv2.THRESH_TOZERO)
+print("c2=\n",c2)
+#自适应阈值处理
+c3=cv2.adaptiveThreshold(a,255,cv2.ADAPTIVE_THRESH_MEAN_C,cv2.THRESH_BINARY,5,3)
+print("c3=\n",c3)
+#Otsu阈值处理
+c4,otsu=cv2.threshold(a,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
+print("otsu=\n",otsu)
+input("按回车键退出")
