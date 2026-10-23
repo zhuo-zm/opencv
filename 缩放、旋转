@@ -1,0 +1,29 @@
+import cv2
+import numpy as np
+a=cv2.imread(r"C:\\Users\\HUAWEI\\Pictures\\cute.png")
+#缩放
+b1,b2=a.shape[:2]
+size=(int(b1*0.5),int(b2*0.5))
+b=cv2.resize(a,size)
+cv2.imshow("a",a)
+cv2.imshow("b",b)
+cv2.waitKey()
+#翻转
+c1=cv2.flip(a,0)
+c2=cv2.flip(a,1)
+c3=cv2.flip(a,-1)
+cv2.imshow("c1",c1)
+cv2.imshow("c2",c2)
+cv2.imshow("c3",c3)
+cv2.waitKey()
+#平移
+M=np.float32([[1,0,100],[0,1,100]])
+d=cv2.warpAffine(a,M,(b1,b2))
+cv2.imshow("d",d)
+cv2.waitKey()
+cv2.destroyAllWindows()
+#旋转
+e1=cv2.getRotationMatrix2D((b1/2,b2/2),45,0.5)
+e2=cv2.warpAffine(a,e1,(b1,b2))
+cv2.imshow("e2",e2)
+cv2.waitKey()
