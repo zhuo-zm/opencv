@@ -1,0 +1,32 @@
+import cv2
+a=r"C:\\Users\\HUAWEI\\Pictures\\cute.png"
+#读取图像，-1为原图
+b1=cv2.imread(a,-1)
+#0灰度图像
+b2=cv2.imread(a,0)
+#1为将图像调整为3通道的BGR图像，是默认值，也就是说可以省略不写:b3=cv2.imread(a)
+b3=cv2.imread(a,1)
+#输出图像像素值
+print(b1)
+#新建窗口并指定名称
+cv2.namedWindow("a")
+#显示图像
+cv2.imshow("a",b1)
+#等待按键，刷新窗口，有了这个才能显示图像，返回按键ASCII，没有返回-1
+b=cv2.waitKey(0)
+#必须先有一个图像显示出来，才可以进行下面的选择语句
+#ord()获取ASCII
+if b==ord('A'):
+    cv2.imshow("A",b2)
+    cv2.waitKey(0)
+elif b==ord('B'):
+    cv2.imshow("B",b3)
+    cv2.waitKey(0)
+#释放所有窗口，如果想释放指定窗口可以：cv2.destroyWindow("a")
+cv2.destroyAllWindows()
+#保存图片
+c=cv2.imwrite(r"C:\\Users\\HUAWEI\\Pictures\\b2.bmp",b2)
+#查看是否保存成功，成功返回True
+print(c)
+#给自己看输出的机会
+input("按回车键退出")
